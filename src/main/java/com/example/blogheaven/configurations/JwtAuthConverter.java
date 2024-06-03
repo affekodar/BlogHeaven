@@ -55,6 +55,7 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
         if (jwt.getClaim("resource_access") == null) {
             return Set.of();
         }
+
         resourceAccess = jwt.getClaim("resource_access");
         if (resourceAccess.get(resourceId) == null) {
             return Set.of();
@@ -62,10 +63,6 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
 
         resource = (Map<String, Object>) resourceAccess.get(resourceId);
         resourceRoles = (Collection<String>) resource.get("roles");
-
-
-        System.out.println(resourceRoles);
-
 
         return resourceRoles
                 .stream()
