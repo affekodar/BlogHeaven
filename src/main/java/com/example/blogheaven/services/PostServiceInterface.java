@@ -1,15 +1,16 @@
 package com.example.blogheaven.services;
 
-import com.example.blogheaven.entities.Posts;
+import com.example.blogheaven.entities.Post;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface PostServiceInterface {
-    List<Posts> fetchAllPosts();
-    Optional<Posts> fetchPostById(int id);
+    List<Post> fetchAllPosts();
+    Post fetchPostById(int id);
+    Post addPost(Post post);
+    Post updatePost(int id, Post post);
     void deletePostById(int id);
 
 }

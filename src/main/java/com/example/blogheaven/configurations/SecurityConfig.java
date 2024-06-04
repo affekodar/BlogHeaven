@@ -22,6 +22,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/posts").permitAll()
                         .requestMatchers("/api/posts/{id}").permitAll()
+                        .requestMatchers("/api/newuser").permitAll()
                         .requestMatchers("/api/newpost").hasRole("client_user")
                         .requestMatchers("/api/updatepost/{id}").hasRole("client_user")
                         .requestMatchers("/api/deletepost/{id}").hasRole("client_user")

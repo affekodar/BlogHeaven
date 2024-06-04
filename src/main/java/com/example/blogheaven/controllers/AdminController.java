@@ -25,7 +25,7 @@ public class AdminController {
     }
 
     @GetMapping("users/{id}")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable int id) {
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
         return ResponseEntity.ok(userService.fetchUserById(id));
     }
 }

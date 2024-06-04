@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface UserServiceInterface {
     List<User> fetchAllUsers();
-    Optional<User> fetchUserById(int id);
+    User fetchUserById(int id);
 
+    User addNewUser(User user);
 }
