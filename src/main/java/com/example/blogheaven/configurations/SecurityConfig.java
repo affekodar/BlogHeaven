@@ -20,15 +20,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-/*                        .requestMatchers("/api/posts").permitAll()
-                        .requestMatchers("/api/posts{id}").permitAll()
-                        .requestMatchers("/api/newpost").hasRole("USER")
-                        .requestMatchers("/api/updatepost/{id}").hasRole("USER")
-                        .requestMatchers("/api/deletepost/{id}").hasRole("USER")*/
-/*
+                        .requestMatchers("/api/posts").permitAll()
+                        .requestMatchers("/api/posts/{id}").permitAll()
+                        .requestMatchers("/api/newpost").hasRole("client_user")
+                        .requestMatchers("/api/updatepost/{id}").hasRole("client_user")
+                        .requestMatchers("/api/deletepost/{id}").hasRole("client_user")
                         .requestMatchers("/api/users").hasRole("client_admin")
-*/
-                        /*.requestMatchers("/api/users/{id}").hasRole("ADMIN")*/
+                        .requestMatchers("/api/users/{id}").hasRole("client_admin")
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.disable())

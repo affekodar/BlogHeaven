@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements UserServiceInterface{
@@ -19,7 +20,9 @@ public class UserService implements UserServiceInterface{
     }
 
     @Override
-    public User addUser(User user) {
-        return userRepository.save(user);
+    public Optional<User> fetchUserById(int id) {
+        return userRepository.findById(id);
     }
+
+
 }
