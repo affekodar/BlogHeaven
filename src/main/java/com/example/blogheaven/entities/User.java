@@ -5,32 +5,26 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-    public User() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column(name = "first_name", length = 20)
     private String firstName;
-
     @Column(name = "last_name", length = 20)
     private String lastName;
-
     @Column(name = "email", length = 30)
     private String email;
-
-     @Column(name = "phone", length = 15)
-     private String phone;
-
-     @Column(name = "member_type", nullable = false)
-     //standard, enhanced, premium
-     private String memberType;
-
+    @Column(name = "phone", length = 15)
+    private String phone;
+    @Column(name = "member_type", nullable = false)
+    //standard, enhanced, premium
+    private String memberType;
     @ManyToOne
     @JoinColumn(name = "address_id", nullable = false)
     private Address address;
+
+    public User() {
+    }
 
     public int getId() {
         return id;

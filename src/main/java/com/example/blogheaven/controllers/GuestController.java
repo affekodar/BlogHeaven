@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -30,6 +29,7 @@ public class GuestController {
     public ResponseEntity<Post> getPostById(@PathVariable int id) {
         return ResponseEntity.ok(postService.fetchPostById(id));
     }
+
     @PostMapping("/newuser")
     public ResponseEntity<User> addNewUser(@RequestBody User user) {
         return ResponseEntity.ok(userService.addNewUser(user));

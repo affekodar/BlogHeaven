@@ -5,8 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "posts")
 public class Post {
-    public Post(){}
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -14,14 +12,15 @@ public class Post {
     private String title;
     @Column(length = 2000)
     private String content;
-
-
-    public void setId(Integer id) {
-        this.id = id;
+    public Post() {
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {

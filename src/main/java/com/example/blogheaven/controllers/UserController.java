@@ -16,16 +16,15 @@ public class UserController {
 
 
     @PostMapping("/newpost")
-    public ResponseEntity<Post> addPost(@RequestBody Post post){
-      Post newPost = postService.addPost(post);
-      return ResponseEntity.ok(newPost);
+    public ResponseEntity<Post> addPost(@RequestBody Post post) {
+        Post newPost = postService.addPost(post);
+        return ResponseEntity.ok(newPost);
     }
 
     @PutMapping("/updatepost/{id}")
     public ResponseEntity<Post> updatePost(@PathVariable int id, @RequestBody Post post) {
         return ResponseEntity.ok(postService.updatePost(id, post));
     }
-
 
 
     @DeleteMapping("/deletepost/{id}")
